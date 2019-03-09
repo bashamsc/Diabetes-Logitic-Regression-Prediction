@@ -9,7 +9,7 @@ from flask import Flask, render_template, request
 
 # Use joblib to load in the pre-trained model
 
-LR_Model = joblib.load('Diabetes_Logistic_Regression_Model.pkl')
+LR_Model = joblib.load('model/Diabetes_Logistic_Regression_Model.pkl')
 
 #creating instance of the class
 app=Flask(__name__)
