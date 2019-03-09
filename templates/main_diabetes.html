@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 40%;
+}
+.result {
+    margin: auto;
+    width: 40%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Diabetes Prediction Model</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        
+		<p>Pregnancies <input type = "number" name = "Pregnancies" /></p>
+         <p>Glucose <input type = "number" name = "Glucose" /></p>
+         <p>BloodPressure <input type = "number" name = "BloodPressure" /></p>
+         <p>SkinThickness <input type ="number" name = "SkinThickness" /></p>
+		 <p>Insulin <input type ="number" name = "Insulin" /></p>
+		 <p>BMI <input type ="float" name = "BMI" /></p>
+		 <p>DiabetesPedigreeFunction <input type ="float" name = "DiabetesPedigreeFunction" /></p>
+		 <p>Age <input type ="float" name = "Age" /></p>
+		 <p><input type = "submit" value = "submit" /></p>
+		
+		
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+    	{% for variable, value in original_input.items() %}
+    		<b>{{ variable }}</b> : {{ value }}
+    	{% endfor %}
+		<br>
+    	<br> Predicted percentage of diagonise:
+   		<p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+
+</html>
